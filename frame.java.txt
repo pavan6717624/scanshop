@@ -1,0 +1,317 @@
+import java.util.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.*;
+import java.awt.event.*;
+import java.io.*;
+import javax.imageio.*;
+class tree
+{
+LinkedList l;
+int m=0;
+int b[][]=new int[9][9];
+}
+class frame extends JFrame implements ActionListener,Runnable
+{
+public void run()
+{
+for(int i=0;i<12;i+=2)
+for(int j=i+1;j<12;j+=2)
+{
+StringBuffer str=new StringBuffer("S U D O K U");
+str=str.insert(j," "+str.charAt(i));
+str.deleteCharAt(i);
+str.deleteCharAt(i);
+l.setText(str+"");
+try
+{
+Thread.sleep(700);
+}
+catch(Exception e)
+{
+}
+}
+try
+{
+Thread t=new Thread(this);
+t.start();
+Thread.sleep(700);
+}
+catch(Exception e)
+{
+}
+}
+tree t[][]=new tree[9][9];
+Stack s=new Stack();
+int[][] a=new int[9][9];
+TextField tf[][]=new TextField[9][9];
+Container c=getContentPane();
+JLabel l=new JLabel("S U D O K U"),l1=new JLabel("P U Z Z L E  S O L V E R");
+public frame()
+{
+super("Welcome to SUDOKU Puzzle Solver--An SVEC Project");
+try
+{
+Thread t=new Thread(this);
+t.start();
+Thread.sleep(700);
+}
+catch(Exception e)
+{
+}
+l.setFont(new Font("Times New Roman",1,50));
+l.setForeground(Color.magenta);
+l.setBounds(370,25,280,35);
+c.add(l);
+l1.setFont(new Font("Times New Roman",1,20));
+l1.setForeground(Color.red);
+l1.setBounds(400,72,225,15);
+c.add(l1);
+for(int i=0;i<2;i++)
+{
+l1=new JLabel("",new ImageIcon("c:\\java\\sudoku"+i+".jpg"),SwingConstants.LEFT);
+l1.setBounds(57+i*12,158+i*305,94,32);
+c.add(l1);
+l1=new JLabel("",new ImageIcon("c:\\java\\sudoku"+(i+2)+".jpg"),SwingConstants.LEFT);
+l1.setBounds(220+i*440,40,145,55);
+c.add(l1);
+}
+c.add(l1);
+String te[]={"to","by"};
+l1=new JLabel("",new ImageIcon("c:\\java\\jntu.png"),SwingConstants.LEFT);
+l1.setBounds(820,140,178,120);
+c.add(l1);
+String name[]={"M MOHAN CHANDU","   R PAVAN KUMAR","JNTU","Hyderabad"};
+for(int i=0;i<2;i++)
+{
+l1=new JLabel(name[2+i]);
+l1.setFont(new Font("Times New Roman",1,35-i*15));
+l1.setForeground(Color.red);
+l1.setBounds(870,280+i*30,200,25);
+c.add(l1);
+l1=new JLabel("<html><u>Project Presented "+te[i]+" :</u></html>");
+l1.setForeground(Color.blue);
+l1.setFont(new Font("Times New Roman",1,20));
+l1.setBounds(805,100+i*245,200,25);
+c.add(l1);
+l1=new JLabel("",new ImageIcon("c:\\java\\me.jpg"),SwingConstants.LEFT);
+l1.setBounds(870,385+i*150,94,95);
+c.add(l1);
+l1=new JLabel(name[i]);
+l1.setFont(new Font("Times New Roman",1,20));
+l1.setBounds(820,490+i*150,200,20);
+c.add(l1);
+}
+c.setBackground(Color.white);
+c.setLayout(null);
+Color co[]={new Color(150,50,50),new Color(50,50,50),new Color(50,50,150),new Color(150,50,50),new Color(50,50,50),new Color(50,50,150)};
+for(int i=0;i<9;i++)
+for(int j=0;j<9;j++)
+{
+a[i][j]=0;
+t[i][j]=new tree();
+tf[i][j]=new TextField();
+tf[i][j].setBackground(co[i/3+j/3]);
+tf[i][j].setBounds(220+j*65,100+i*65,55,55);
+tf[i][j].setForeground(Color.yellow);
+tf[i][j].setFont(new Font("Times New Roman",1,40));
+c.add(tf[i][j]);	
+}
+String str[]={"CLEAR","CHECK","FILL","HELP","SAVE","EXIT"};
+for(int i=0;i<6;i++)
+{
+JButton b=new JButton(str[i]);
+b.setFont(new Font("Times New Roman",1,20));
+b.setToolTipText("Click here to "+str[i]+" the Sudoku");
+b.setBounds(30,200+i*45,150,30);
+b.addActionListener(this);
+c.add(b);
+}
+setSize(1025,740);
+setVisible(true);
+setIconImage(Toolkit.getDefaultToolkit().getImage("c:\\java\\sudoku.jpg"));
+setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+}
+public void actionPerformed(ActionEvent e)
+{
+String ch=e.getActionCommand();
+if(ch.equals("HELP"))
+JOptionPane.showMessageDialog(null,"ENTER THE SUDOKU PUZZLE AND USE \n\tCHECK->TO CHECK GIVEN DATA\n\tCLEAR->TO CLEAR THE GIVEN DATA\n\tFILL->TO SOLVE THE SUDOKU BY COMPUTER");
+else if(ch.equals("EXIT"))
+{
+setVisible(false);
+System.exit(0);
+}
+else if(ch.equals("CLEAR"))
+{
+for(int i=0;i<9;i++)
+for(int j=0;j<9;j++)
+{
+tf[i][j].setText("");
+a[i][j]=0;
+t[i][j]=new tree();
+}
+}
+else if(ch.equals("CHECK") || ch.equals("FILL"))
+{
+if(!check() || !check1())
+JOptionPane.showMessageDialog(null,"Sorry the given Data is WRONG");
+else
+{
+if(ch.equals("CHECK"))
+JOptionPane.showMessageDialog(null,"The given Data is CORRECT,Click on FILL to Continue");
+else
+{
+fun1();
+fun2();
+}
+}
+}
+else if(ch.equals("SAVE"))
+{
+try
+{
+FileDialog f=new FileDialog(this,"File Saver",1);
+f.setVisible(true);
+String name=f.getDirectory()+f.getFile()+".jpg";
+if(!name.equals("nullnull.jpg"))
+{
+Robot robot = new Robot();
+Thread.sleep(10);
+BufferedImage bufferedImage = robot.createScreenCapture(new Rectangle(210,120,600,595));
+ImageIO.write(bufferedImage, "jpg", new File(name));
+}
+}
+catch(Exception e1)
+{
+}
+}
+}
+public void fun2()
+{
+int count=0,x=0,y=0;
+try
+{
+for(int i=0;i<9;i++)
+for(int j=0;j<9;j++)
+if(a[i][j]==0 && count==0)
+{
+count=1;
+x=i;
+y=j;
+i=j=10;
+}
+if(count==0)
+{
+display();
+throw new Exception();
+}
+if(t[x][y].m==t[x][y].l.size())
+{
+t[x][y].m=0;
+String ch=s.pop()+"";
+int v=Integer.parseInt(ch)/10;
+int p=Integer.parseInt(ch)%10;
+for(int i=0;i<9;i++)
+System.arraycopy(t[v][p].b[i],0,a[i],0,9);
+fun2();
+}
+else
+{
+s.push(x+""+y);
+for(int i=0;i<9;i++)
+System.arraycopy(a[i],0,t[x][y].b[i],0,9);
+a[x][y]=Integer.parseInt(t[x][y].l.get(t[x][y].m)+"");
+t[x][y].m++;
+if(fun1())
+fun2();
+else
+{
+for(int i=0;i<9;i++)
+System.arraycopy(t[x][y].b[i],0,a[i],0,9);
+s.pop();
+fun2();
+}
+}
+}
+catch(Exception e)
+{
+if(count==1)
+JOptionPane.showMessageDialog(null,"Sorry the given Data is WRONG");
+}
+}
+public boolean fun1()
+{
+for(int i=0;i<9;i++)
+for(int j=0;j<9;j++)
+if(a[i][j]==0)
+{
+t[i][j].l=new LinkedList();
+for(int k=1;k<=9;k++)
+t[i][j].l.add(""+k);
+for(int k=0;k<9;k++)
+for(int r=1;r<=9;r++)
+if((a[i][k]==r && k!=j) || (a[k][j]==r && k!=i))
+t[i][j].l.remove(""+r);
+for(int k=i/3*3;k<i/3*3+3;k++)
+for(int r=j/3*3;r<j/3*3+3;r++)
+for(int l=1;l<=9;l++)
+if(a[k][r]==l && k!=i && r!=j)
+t[i][j].l.remove(""+l);
+if(t[i][j].l.size()==1)
+{
+a[i][j]=Integer.parseInt(t[i][j].l.getFirst()+"");
+t[i][j].l.removeFirst();
+fun1();
+}
+else if(t[i][j].l.size()==0)
+return false;
+}
+return true;
+}
+public boolean check1()
+{
+for(int i=0;i<9;i++)
+for(int j=0;j<9;j++)
+if(a[i][j]!=0)
+{
+for(int k=0;k<9;k++)
+if((a[i][k]==a[i][j] && k!=j) ||(a[k][j]==a[i][j] && k!=i))
+return false;
+for(int k=i/3*3;k<i/3*3+3;k++)
+for(int l=j/3*3;l<j/3*3+3;l++)
+if(a[k][l]==a[i][j] && k!=i && l!=j)
+return false;
+}
+return true;
+}
+public boolean check()
+{
+for(int i=0;i<9;i++)
+for(int j=0;j<9;j++)
+try
+{
+a[i][j]=Integer.parseInt(tf[i][j].getText());
+if(a[i][j]<0 || a[i][j]>9)
+{
+a[i][j]=0;
+return false;
+}
+}
+catch(Exception e)
+{
+a[i][j]=0;
+}
+return true;
+}
+public void display()
+{
+for(int i=0;i<9;i++)
+for(int j=0;j<9;j++)
+tf[i][j].setText(""+a[i][j]);
+}
+public static void main(String arr[])
+{
+new frame();
+}
+}
