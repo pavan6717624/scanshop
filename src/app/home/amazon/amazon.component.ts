@@ -15,4 +15,9 @@ export class AmazonComponent implements OnInit {
     this.isMobile = this.deviceService.isMobile();
   }
 
+  buy()
+  {
+    window.location.replace("https://amzn.to/3ZBqmfA");
+  }
+
 }
