@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    margin:0em;
+    font-family: var(--font-family);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+    font-family: 'Poppins';
+}
+
+
+.p-menu .p-menuitem-text {
+    font-family: 'Poppins';
+}
+

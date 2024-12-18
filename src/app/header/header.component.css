@@ -1,0 +1,25 @@
+.hoverfield:hover {
+    border-bottom:2px solid lightskyblue;
+  }
+
+  .hoverfield
+  {
+    border-bottom:1px solid lightslategray;
+    cursor: pointer;
+  }
+ 
+  .sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  
+.imgshadow
+{
+  -moz-box-shadow: 0px 4px 5px #ccc;
+  -webkit-box-shadow: 0px 4px 5px #ccc;
+  box-shadow: 0px 4px 5px #ccc;
+    
+}

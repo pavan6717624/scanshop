@@ -7,19 +7,33 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import {MenubarModule} from 'primeng/menubar';
+import {MenuModule} from 'primeng/menu';
+import {SlideMenuModule} from 'primeng/slidemenu';
+import {OverlayPanelModule} from 'primeng/overlaypanel';
+
+import {SidebarModule} from 'primeng/sidebar';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+
+    
+  
   ],
   imports: [
     BrowserModule,
+    SidebarModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MenubarModule,
+    MenuModule,
+    SlideMenuModule,
+    OverlayPanelModule
   ],
   providers: [],
   bootstrap: [AppComponent]
