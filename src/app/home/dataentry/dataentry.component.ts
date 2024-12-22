@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AmazonService } from '../amazon.service';
+import { AmazonService } from 'src/app/amazon.service';
 
 @Component({
   selector: 'app-dataentry',
@@ -7,8 +7,7 @@ import { AmazonService } from '../amazon.service';
   styleUrls: ['./dataentry.component.css']
 })
 export class DataentryComponent implements OnInit {
-
-  url: string = '';
+ url: string = '';
   constructor(private service: AmazonService) { }
 
   ngOnInit(): void {
@@ -27,5 +26,4 @@ export class DataentryComponent implements OnInit {
         console.log(res);
       });
   }
-
 }

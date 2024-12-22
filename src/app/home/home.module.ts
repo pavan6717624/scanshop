@@ -6,12 +6,16 @@ import { HomeRoutingModule } from './home-routing.module';
 import { SharedModule } from '../shared/shared.module';
 
 import { AmazonComponent } from './amazon/amazon.component';
+import { DataentryComponent } from './dataentry/dataentry.component';
+import { DemopageComponent } from './demopage/demopage.component';
 
 
 @NgModule({
   declarations: [
 
-    AmazonComponent
+    AmazonComponent,
+     DataentryComponent,
+     DemopageComponent
   ],
   imports: [
     CommonModule,

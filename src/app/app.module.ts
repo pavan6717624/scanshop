@@ -13,17 +13,15 @@ import {SlideMenuModule} from 'primeng/slidemenu';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
 
 import {SidebarModule} from 'primeng/sidebar';
-import { DataentryComponent } from './dataentry/dataentry.component';
+
 import { SharedModule } from './shared/shared.module';
-import { DemopageComponent } from './demopage/demopage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    DataentryComponent,
-    DemopageComponent,
+  
 
     
   
