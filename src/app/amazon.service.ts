@@ -11,7 +11,7 @@ export class AmazonService {
   
   createPageContent(formData: FormData)
   {
-    return this.http.post('http://localhost:8081/AMAZON/createPageContent',formData);
+    return this.http.post('https://heidigi-app-38b2318c83b0.herokuapp.com/AMAZON/createPageContent',formData);
   }
 
 
