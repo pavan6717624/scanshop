@@ -5,9 +5,9 @@ import { DemopageComponent } from './demopage/demopage.component';
 
 const routes: Routes = [
 
-  // { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+  { path: 'amazon', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
 
-  { path: 'dataentry', component: DataentryComponent },
+  { path: '', component: DataentryComponent },
   { path: 'demopage', component: DemopageComponent },
 
   
