@@ -1,7 +1,7 @@
 <div class="grid grid-nogutter surface-section text-800">
 
     <div class="col-12 md:col-6 overflow-hidden" *ngIf="!isMobile">
-        <img src="https://m.media-amazon.com/images/I/71QfC+NELFL._SX569_.jpg" alt="Image"
+        <img [src]="imageUrl" alt="Image"
             class="md:ml-auto block md:h-full" style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)">
 
 
@@ -9,10 +9,9 @@
 
     <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center ">
         <section>
-            <span class="block text-3xl font-bold mb-1">Orient Electric Areva Portable Room Heater</span>
-            <div class="text-3xl text-primary font-bold mb-3">A Compact Winter Essential</div>
-            <p class="mt-0 mb-4 text-700 line-height-3">2000W | Two Heating Modes | Advanced Overheat Protection |
-                Horizontal & Vertical Mount | 1-year replacement warranty by Orient | White</p>
+            <span class="block text-3xl font-bold mb-1">{{productName}}</span>
+            <div class="text-3xl text-primary font-bold mb-3">{{tagLine}}</div>
+            <p class="mt-0 mb-4 text-700 line-height-3">{{description}}</p>
 
             <button pButton pRipple label="Buy Now" type="button" (click)="buy()" class="mr-3 p-button-raised"></button>
             <!-- <button pButton pRipple label="Live Demo" type="button" class="p-button-outlined"></button> -->
@@ -29,7 +28,7 @@
 
 
 
-<div class="surface-section text-center">
+<div class="surface-section text-center" style="padding-top:5em">
     <div class="mb-3 font-bold text-3xl">
         <span class="text-blue-600">Key Features </span>
         <!-- <span class="text-900">of the Orient Electric Areva Heater</span> -->
@@ -41,49 +40,44 @@
             <span class="p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
                 <i class="pi pi-check-square text-4xl text-blue-500"></i>
             </span>
-            <div class="text-900 text-xl mb-3 font-medium">Adjustable Thermostat</div>
-            <span class="text-700 line-height-3">Customize your heating experience with an easy-to-use adjustable
-                thermostat. This feature allows for precise temperature control to suit your comfort needs.</span>
+            <div class="text-900 text-xl mb-3 font-medium">{{keyFeatures[0].split(":")[0]}}</div>
+            <span class="text-700 line-height-3">{{keyFeatures[0].split(":")[1]}}</span>
         </div>
         <div class="col-12 md:col-4 mb-4 px-5">
             <span class="p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
                 <i class="pi pi-check-square text-4xl text-blue-500"></i>
             </span>
-            <div class="text-900 text-xl mb-3 font-medium">Dual Functionality</div>
-            <span class="text-700 line-height-3">The heater is designed for year-round use. It not only warms up your
-                space during winters but also serves as a regular fan in summers.</span>
+            <div class="text-900 text-xl mb-3 font-medium">{{keyFeatures[1].split(":")[0]}}</div>
+            <span class="text-700 line-height-3">{{keyFeatures[1].split(":")[1]}}</span>
         </div>
         <div class="col-12 md:col-4 mb-4 px-5">
             <span class="p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
                 <i class="pi pi-check-square text-4xl text-blue-500"></i>
             </span>
-            <div class="text-900 text-xl mb-3 font-medium">Portable and Lightweight Design</div>
-            <span class="text-700 line-height-3">The compact build ensures the heater is easy to move and store. It’s
-                perfect for bedrooms, living rooms, or even office spaces.</span>
+            <div class="text-900 text-xl mb-3 font-medium">{{keyFeatures[2].split(":")[0]}}</div>
+            <span class="text-700 line-height-3">{{keyFeatures[2].split(":")[1]}}</span>
         </div>
         <div class="col-12 md:col-4 mb-4 px-5">
             <span class="p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
                 <i class="pi pi-check-square text-4xl text-blue-500"></i>
             </span>
-            <div class="text-900 text-xl mb-3 font-medium">Enhanced Safety Features</div>
-            <span class="text-700 line-height-3">Equipped with overheat protection, the heater automatically shuts off
-                when it reaches unsafe temperatures, ensuring maximum safety for your home.</span>
+            <div class="text-900 text-xl mb-3 font-medium">{{keyFeatures[3].split(":")[0]}}</div>
+            <span class="text-700 line-height-3">{{keyFeatures[3].split(":")[1]}}</span>
         </div>
         <div class="col-12 md:col-4 mb-4 px-5">
             <span class="p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
                 <i class="pi pi-check-square text-4xl text-blue-500"></i>
             </span>
-            <div class="text-900 text-xl mb-3 font-medium">Energy Efficiency</div>
-            <span class="text-700 line-height-3">Designed to provide optimal heating while consuming minimal power, this
-                heater is cost-effective and environmentally friendly. </span>
+            <div class="text-900 text-xl mb-3 font-medium">{{keyFeatures[4].split(":")[0]}}</div>
+            <span class="text-700 line-height-3">{{keyFeatures[4].split(":")[1]}} </span>
         </div>
-        <!-- <div class="col-12 md:col-4 md:mb-4 mb-0 px-3">
+        <div class="col-12 md:col-4 md:mb-4 mb-0 px-3">
             <span class="p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
                 <i class="pi pi-check-square text-4xl text-blue-500"></i>
             </span>
-            <div class="text-900 text-xl mb-3 font-medium">Trusted Securitty</div>
-            <span class="text-700 line-height-3">Mattis rhoncus urna neque viverra justo nec ultrices. Id cursus metus aliquam eleifend.</span>
-        </div> -->
+            <div class="text-900 text-xl mb-3 font-medium">{{keyFeatures[5].split(":")[0]}}</div>
+            <span class="text-700 line-height-3">{{keyFeatures[5].split(":")[1]}}</span>
+        </div>
     </div>
 </div>
 
@@ -99,9 +93,8 @@
         <div class="col-12 lg:col-4">
             <div class="p-3 h-full">
                 <div class="shadow-2 p-3 h-full flex flex-column surface-card" style="border-radius: 6px">
-                    <div class="text-900 font-medium text-xl mb-2">Quick Heating</div>
-                    <div class="text-600">The powerful motor ensures rapid heating, making it ideal for chilly mornings
-                        and cold nights.</div>
+                    <div class="text-900 font-medium text-xl mb-2">{{benefits[0].split(":")[0]}}</div>
+                    <div class="text-600">{{benefits[0].split(":")[1]}}</div>
 
                 </div>
             </div>
@@ -111,9 +104,8 @@
         <div class="col-12 lg:col-4">
             <div class="p-3 h-full">
                 <div class="shadow-2 p-3 h-full flex flex-column surface-card" style="border-radius: 6px">
-                    <div class="text-900 font-medium text-xl mb-2">Noiseless Operation</div>
-                    <div class="text-600">Enjoy a peaceful environment with its quiet functioning, perfect for working
-                        or sleeping.
+                    <div class="text-900 font-medium text-xl mb-2">{{benefits[1].split(":")[0]}}</div>
+                    <div class="text-600">{{benefits[1].split(":")[1]}}
 
                     </div>
 
@@ -125,9 +117,8 @@
         <div class="col-12 lg:col-4">
             <div class="p-3 h-full">
                 <div class="shadow-2 p-3 h-full flex flex-column surface-card" style="border-radius: 6px">
-                    <div class="text-900 font-medium text-xl mb-2">Reliable Build</div>
-                    <div class="text-600">The sturdy design and quality materials make this a long-lasting addition to
-                        your home appliances.</div>
+                    <div class="text-900 font-medium text-xl mb-2">{{benefits[2].split(":")[0]}}</div>
+                    <div class="text-600">{{benefits[2].split(":")[1]}}</div>
 
                 </div>
             </div>
@@ -154,26 +145,26 @@
         <!-- <div class="text-500 mb-5">Morbi tristique blandit turpis. In viverra ligula id nulla hendrerit rutrum.</div> -->
         <ul class="list-none p-0 m-0">
             <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
-                <div class="text-500 w-6 md:w-2 font-medium">Heating Capacity</div>
-                <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">Ideal for small to medium-sized rooms.
+                <div class="text-500 w-6 md:w-2 font-medium">{{productSpecifications[0].split(":")[0]}}</div>
+                <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">{{productSpecifications[0].split(":")[1]}}
                 </div>
 
             </li>
 
             <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
-                <div class="text-500 w-6 md:w-2 font-medium">Power Consumption</div>
-                <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">Approximately 2000 Watts.</div>
+                <div class="text-500 w-6 md:w-2 font-medium">{{productSpecifications[1].split(":")[0]}}</div>
+                <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">{{productSpecifications[1].split(":")[1]}}</div>
 
             </li>
             <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
-                <div class="text-500 w-6 md:w-2 font-medium">Material</div>
-                <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">Durable plastic exterior</div>
+                <div class="text-500 w-6 md:w-2 font-medium">{{productSpecifications[2].split(":")[0]}}</div>
+                <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">{{productSpecifications[2].split(":")[1]}}</div>
 
             </li>
             <li class="flex align-items-center py-3 px-2 border-top-1 border-bottom-1 surface-border flex-wrap">
-                <div class="text-500 w-6 md:w-2 font-medium">Color</div>
+                <div class="text-500 w-6 md:w-2 font-medium">{{productSpecifications[3].split(":")[0]}}</div>
                 <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1 line-height-3">
-                    Classic white with a sleek design</div>
+                    {{productSpecifications[3].split(":")[1]}}</div>
 
             </li>
         </ul>
@@ -183,7 +174,7 @@
 
 <div style='margin:auto; padding: 0;display: flex;justify-content: center;align-items: center; width:100%; height:100%'>
 
-    <div class="surface-ground p-4 shadow-2 border-round w-full lg:w-3">
+    <div class="surface-ground p-4 shadow-2 border-round w-full lg:w-4">
         <div class="mb-3 font-bold text-3xl text-center">
             <span class="text-blue-600">Why Choose </span> <br />
             <!-- <span class="text-900">The Orient Electric Areva Heater</span> -->
@@ -193,15 +184,15 @@
             <ul class="list-none p-0 m-0 flex-grow-1 text-3xl font-bold">
                 <li class="flex align-items-center mb-3">
                     <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                    <span class="text-900">Trusted Brand</span>
+                    <span class="text-900">{{whyChoose[0].split(":")[0]}}</span>
                 </li>
                 <li class="flex align-items-center mb-3">
                     <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                    <span class="text-900">Affordable Pricing</span>
+                    <span class="text-900">{{whyChoose[1].split(":")[0]}}</span>
                 </li>
                 <li class="flex align-items-center mb-3">
                     <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                    <span class="text-900">Stylish Design</span>
+                    <span class="text-900">{{whyChoose[2].split(":")[0]}}</span>
                 </li>
 
             </ul>
@@ -214,9 +205,7 @@
     <div class="text-700 text-center">
         <!-- <div class="text-blue-600 font-bold mb-3"><i class="pi pi-discord"></i>&nbsp;POWERED BY DISCORD</div>
         <div class="text-900 font-bold text-5xl mb-3">Join Our Design Community</div> -->
-        <div class="text-700 text-xl mb-5">The Orient Electric Areva Adjustable Thermostat Fan Heater is a smart choice
-            for anyone seeking a reliable and efficient heating solution. Its combination of safety features, energy
-            efficiency, and user-friendly design ensures comfort and peace of mind throughout the winter.</div>
+        <div class="text-700 text-xl mb-5"> {{conclusion}}</div>
         <button pButton pRipple label="Buy Now" (click)="buy()" icon="pi pi-shopping-bag"
             class="font-bold px-5 py-3 p-button-raised p-button-rounded white-space-nowrap"></button>
     </div>

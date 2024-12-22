@@ -14,9 +14,10 @@ export class AmazonComponent implements OnInit {
   ngOnInit(): void {
     this.isMobile = this.deviceService.isMobile();
   }
-
+loading=false;
   buy()
   {
+    this.loading=true;
     window.location.replace("https://amzn.to/3ZBqmfA");
   }
 

@@ -31,8 +31,12 @@ import {BlockUIModule} from 'primeng/blockui';
 import { BadgeModule } from "primeng/badge";
 import {FieldsetModule} from 'primeng/fieldset';
 import {SlideMenuModule} from 'primeng/slidemenu';
+import { SkeletonModule } from 'primeng/skeleton';
+import { BrowserModule } from '@angular/platform-browser'
 const SHARED_MODULES = [
+  BrowserModule,
   SlideMenuModule, 
+  SkeletonModule,
   BlockUIModule,
   BadgeModule,
   AvatarGroupModule,

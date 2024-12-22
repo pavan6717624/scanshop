@@ -1,0 +1,20 @@
+<br/>
+<br/><div style='margin:auto; padding: 0;display: flex;justify-content: center;align-items: center; width:100%; height:100%'>
+    <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
+        <div class="col-12">
+            <div class="p-inputgroup">
+
+                <input id="url" type="text" placeholder="URL" [(ngModel)]="url" pInputText>
+
+                <span class="p-inputgroup-addon"><i class="pi pi-globe"></i></span>
+            </div>
+
+            <div class="flex flex-wrap gap-3"> &nbsp;</div>
+
+            <button pButton pRipple label="View Page" type="button" (click)="getData()" class="mr-3 p-button-raised"></button>
+           
+        </div>
+    </div>
+</div>
+<br/>
+<br/>
