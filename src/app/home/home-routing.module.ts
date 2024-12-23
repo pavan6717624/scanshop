@@ -10,6 +10,7 @@ import { LoadProductComponent } from './load-product/load-product.component';
 const routes: Routes = [
 
   {path: '', component: HomeComponent},
+  {path: 'home', component: HomeComponent},
 
   {path: 'dataentry', component: DataentryComponent},
   {path: 'demopage', component: DemopageComponent},
