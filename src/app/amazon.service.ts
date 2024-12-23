@@ -8,10 +8,16 @@ export class AmazonService {
 
   constructor(private http: HttpClient) { }
 
-  
-  createPageContent(formData: FormData)
-  {
-    return this.http.post('https://heidigi-app-38b2318c83b0.herokuapp.com/AMAZON/createPageContent',formData);
+  url: string = 'http://localhost:8081/';
+
+  // url: string = 'https://heidigi-app-38b2318c83b0.herokuapp.com/';
+
+  createPageContent(formData: FormData) {
+    return this.http.post(this.url + 'AMAZON/createPageContent', formData);
+  }
+
+  savePageContent(formData: FormData) {
+    return this.http.post(this.url + 'AMAZON/savePageContent', formData);
   }
 
 

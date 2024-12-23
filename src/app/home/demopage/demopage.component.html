@@ -20,7 +20,7 @@
 
     <div class="col-12 md:col-6 overflow-hidden" *ngIf="isMobile">
 
-        <img src="https://m.media-amazon.com/images/I/71QfC+NELFL._SX569_.jpg" alt="Image"
+        <img [src]="imageUrl" alt="Image"
             class="md:ml-auto block md:h-full" style="width:inherit">
     </div>
 
@@ -220,4 +220,29 @@
 
         </div>
     </div>
+</p-dialog>
+
+
+<div class="icon-bar">
+    <a href="#"  (click)="edit()" class="facebook"><i class="pi pi-pencil"></i></a>
+    <a href="#" (click)="save()" class="linkedin"><i class="pi pi-save"></i></a>
+    
+</div>
+
+<p-dialog [modal]="true" [closable]="true" header="Edit Content" [(visible)]="editVisible">
+<div >
+      
+
+       
+
+            <textarea rows="15" cols="40" pTextarea [(ngModel)]="data"></textarea>
+
+       
+
+        <div class="flex flex-wrap gap-3"> &nbsp;</div>
+
+        <button pButton pRipple label="Edit Data" type="button" (click)="editData()" class="mr-3 p-button-raised"></button>
+       
+   
+</div>
 </p-dialog>
