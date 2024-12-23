@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
 menuOpen=false;
 
 
+
   mobileMenuItems=[{ label: 'Home', icon: 'pi pi-home', routerLink: 'home' }, 
   { label: 'Practices', icon: 'pi pi-pencil', routerLink: 'about', }, 
   { label: 'Initiatives', icon: 'pi pi-sun', routerLink: 'contact' },
