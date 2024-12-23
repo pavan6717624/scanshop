@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { AmazonService } from 'src/app/amazon.service';
 
@@ -9,12 +10,15 @@ import { AmazonService } from 'src/app/amazon.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service: AmazonService, private messageService: MessageService) { }
+  constructor(private router: Router, private service: AmazonService, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.getPageContents();
   }
-
+loadProduct(productUrl: string)
+{
+  this.router.navigate(['/loadProduct/'+productUrl]);
+}
   loading=false;
 
   products: any;

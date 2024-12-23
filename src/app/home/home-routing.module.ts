@@ -5,6 +5,7 @@ import { AmazonComponent } from './amazon/amazon.component';
 import { DataentryComponent } from './dataentry/dataentry.component';
 import { DemopageComponent } from './demopage/demopage.component';
 import { HomeComponent } from './home/home.component';
+import { LoadProductComponent } from './load-product/load-product.component';
 
 const routes: Routes = [
 
@@ -12,6 +13,7 @@ const routes: Routes = [
 
   {path: 'dataentry', component: DataentryComponent},
   {path: 'demopage', component: DemopageComponent},
+  {path: 'loadProduct/:productUrl', component: LoadProductComponent},
 
 ];
 

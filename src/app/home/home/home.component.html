@@ -3,7 +3,7 @@
     <p-card class="card" [style]="{ width: '310px', height:'420px', padding:'5px',margin:'10px'}">
         <ng-template pTemplate="header">
 
-            <img onContextMenu="return false;" [src]="product.imageUrl" alt="Image" style=" overflow: hidden;
+            <img (click)="loadProduct(product.productUrl)" onContextMenu="return false;" [src]="product.imageUrl" alt="Image" style=" overflow: hidden;
           width: 300px;
           height: 300px;
           border-radius: 8px;

@@ -9,6 +9,7 @@ import { AmazonComponent } from './amazon/amazon.component';
 import { DataentryComponent } from './dataentry/dataentry.component';
 import { DemopageComponent } from './demopage/demopage.component';
 import { HomeComponent } from './home/home.component';
+import { LoadProductComponent } from './load-product/load-product.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { HomeComponent } from './home/home.component';
     AmazonComponent,
      DataentryComponent,
      DemopageComponent,
-     HomeComponent
+     HomeComponent,
+     LoadProductComponent
   ],
   imports: [
     CommonModule,
