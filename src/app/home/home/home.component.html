@@ -25,3 +25,14 @@
 
 
 </div>
+
+<p-dialog [modal]="true" [closable]="false" header="Loading...." [(visible)]="loading">
+    <div class="grid justify-content-between">
+        <div>
+
+            <p-skeleton width="20rem" styleClass="mb-2"></p-skeleton>
+            <p-skeleton width="20rem" styleClass="mb-2"></p-skeleton>
+
+        </div>
+    </div>
+</p-dialog>
