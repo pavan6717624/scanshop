@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AmazonComponent } from './amazon/amazon.component';
 import { DataentryComponent } from './dataentry/dataentry.component';
 import { DemopageComponent } from './demopage/demopage.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { DemopageComponent } from './demopage/demopage.component';
 
     AmazonComponent,
      DataentryComponent,
-     DemopageComponent
+     DemopageComponent,
+     HomeComponent
   ],
   imports: [
     CommonModule,
