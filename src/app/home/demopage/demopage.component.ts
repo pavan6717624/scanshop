@@ -12,6 +12,7 @@ export class DemopageComponent implements OnInit {
 
   
     data:any;
+    affiliateUrl: string = '';
   
     imageUrl: string ='';
     productName: string = '';
@@ -62,6 +63,8 @@ export class DemopageComponent implements OnInit {
 
       this.whyChoose= this.whyChoose.filter(o=>o.trim().length > 0);
 
+      this.affiliateUrl=data.affiliateUrl;
+
       if(this.whyChoose.length > 3)
         this.whyChoose = this.whyChoose.slice(1,4);
 
@@ -84,7 +87,7 @@ export class DemopageComponent implements OnInit {
      buy()
      {
        this.loading=true;
-       window.location.replace("https://amzn.to/3ZBqmfA");
+       window.location.replace(this.affiliateUrl);
      }
      editVisible=false;
      edit()

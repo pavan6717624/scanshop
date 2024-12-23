@@ -9,6 +9,7 @@ import { AmazonService } from 'src/app/amazon.service';
 })
 export class DataentryComponent implements OnInit {
  url: string = '';
+ aurl: string = '';
   constructor(private service: AmazonService, private messageService: MessageService) { }
 
   loading=false;
@@ -20,6 +21,7 @@ export class DataentryComponent implements OnInit {
   {
     var formData=new FormData();
     formData.set("url", this.url);
+    formData.set("aurl", this.aurl);
 
     this.loading=true;
     this.service.createPageContent(formData).subscribe(
