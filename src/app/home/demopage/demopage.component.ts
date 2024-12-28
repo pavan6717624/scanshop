@@ -24,6 +24,7 @@ export class DemopageComponent implements OnInit {
     
     whyChoose: string[]=[];
     conclusion: string = '';
+    price: string = '';
     
   
     constructor(private deviceService: DeviceDetectorService, private service: AmazonService, private messageService: MessageService) {
@@ -61,7 +62,10 @@ export class DemopageComponent implements OnInit {
 
       this.whyChoose = data.whyChoose.trim().split("\\n");
 
-      this.whyChoose= this.whyChoose.filter(o=>o.trim().length > 0);
+      this.whyChoose= this.whyChoose.filter(o=>o.trim().length > 0);4
+      this.price=data.price;
+
+      console.log(data.price);
 
       this.affiliateUrl=data.affiliateUrl;
 

@@ -27,6 +27,7 @@ export class LoadProductComponent implements OnInit {
 
   productUrl: string = '';
 
+  price: string = '';
 
   constructor(private route: ActivatedRoute, private deviceService: DeviceDetectorService, private service: AmazonService, private messageService: MessageService) {
     
@@ -63,6 +64,7 @@ export class LoadProductComponent implements OnInit {
 
 
         this.imageUrl = data.imageUrl;
+        this.price=data.price;
 
 
         this.productName = data.product.replace(/\\n/g, "");
