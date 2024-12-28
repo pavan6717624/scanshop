@@ -13,7 +13,7 @@
                     style="padding-left:15px;padding-right:15px;padding-top:10px;align-items: center;">
                     <div>
                         <div class="text-900 p-1 font-medium text-xl mb-2">{{product.product}}</div>
-                        <div class="bg-blue-900 text-gray-100 p-1 text-900 font-bold text-center mb-2">&#8377; {{product.price}}</div>
+                        <div (click)="loadProduct(product.productUrl)" class="bg-blue-900 text-gray-100 p-1 text-900 font-bold text-center mb-2">&#8377; {{product.price}}</div>
                         <div class="text-900 p-1 mb-2">{{product.tagLine}}</div>
 
                     </div>
