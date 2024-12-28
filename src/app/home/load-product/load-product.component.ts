@@ -126,8 +126,11 @@ export class LoadProductComponent implements OnInit {
 
   loading = false;
   buy() {
-    this.loading = true;
+    this.messageService.clear();
+    this.messageService.add({ severity: 'info', summary: 'Please Wait..Loading...', detail: '' });
+      
     window.location.replace(this.affiliateUrl);
+    // this.messageService.clear();
   }
   
 }
