@@ -30,10 +30,10 @@ export class LoadProductComponent implements OnInit {
   price: string = '';
 
   constructor(private route: ActivatedRoute, private deviceService: DeviceDetectorService, private service: AmazonService, private messageService: MessageService) {
-    
+
     this.productUrl = this.route.snapshot.paramMap.get('productUrl') + "";
 
-  
+
 
   }
 
@@ -54,7 +54,7 @@ export class LoadProductComponent implements OnInit {
         var data = res;
 
 
-        
+
 
         this.data = data;
 
@@ -64,7 +64,7 @@ export class LoadProductComponent implements OnInit {
 
 
         this.imageUrl = data.imageUrl;
-        this.price=data.price;
+        this.price = data.price;
 
 
         this.productName = data.product.replace(/\\n/g, "");
@@ -87,7 +87,7 @@ export class LoadProductComponent implements OnInit {
 
         this.whyChoose = this.whyChoose.filter(o => o.trim().length > 0);
 
-        this.affiliateUrl=data.affiliateUrl;
+        this.affiliateUrl = data.affiliateUrl;
 
         if (this.whyChoose.length > 3)
           this.whyChoose = this.whyChoose.slice(1, 4);
@@ -126,11 +126,37 @@ export class LoadProductComponent implements OnInit {
 
   loading = false;
   buy() {
+
     this.messageService.clear();
     this.messageService.add({ severity: 'info', summary: 'Please Wait..Loading...', detail: '' });
-      
-    window.location.replace(this.affiliateUrl);
-    // this.messageService.clear();
+
+
+    var formData = new FormData();
+    formData.set("product", this.productUrl);
+    this.service.buyNowAudit(formData).subscribe(
+
+      (res: any) => {
+        this.messageService.clear();
+        window.location.replace(this.affiliateUrl);
+      },
+      (err: any) => {
+        this.messageService.clear();
+        window.location.replace(this.affiliateUrl);
+      }
+
+
+
+
+    );
+
+
+
+    console.log(this.productUrl);
+
+
+
+
+
   }
-  
+
 }

@@ -16,6 +16,11 @@ export class AmazonService {
     return this.http.post(this.url + 'AMAZON/createPageContent', formData);
   }
 
+  buyNowAudit(formData: FormData) {
+    
+    return this.http.post(this.url + 'AMAZON/buyNowAudit', formData);
+  }
+
   savePageContent(formData: FormData) {
     return this.http.post(this.url + 'AMAZON/savePageContent', formData);
   }
