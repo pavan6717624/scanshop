@@ -32,9 +32,13 @@ import { BadgeModule } from "primeng/badge";
 import {FieldsetModule} from 'primeng/fieldset';
 import {SlideMenuModule} from 'primeng/slidemenu';
 import { SkeletonModule } from 'primeng/skeleton';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
+
+
 
 const SHARED_MODULES = [
-
+  InputNumberModule,
   SlideMenuModule, 
   SkeletonModule,
   BlockUIModule,
@@ -42,6 +46,7 @@ const SHARED_MODULES = [
   AvatarGroupModule,
   MessageModule,
   MessagesModule,
+  ZXingScannerModule,
   AvatarModule,
   DockModule,
   DynamicDialogModule,

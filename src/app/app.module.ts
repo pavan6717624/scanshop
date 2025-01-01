@@ -16,11 +16,13 @@ import {SidebarModule} from 'primeng/sidebar';
 
 import { SharedModule } from './shared/shared.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     HeaderComponent,
+  
   
 
     
