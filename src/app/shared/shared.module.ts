@@ -35,9 +35,10 @@ import { SkeletonModule } from 'primeng/skeleton';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
-
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 const SHARED_MODULES = [
+  ConfirmDialogModule,
   InputNumberModule,
   SlideMenuModule, 
   SkeletonModule,

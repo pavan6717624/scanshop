@@ -11,7 +11,7 @@ import {MenubarModule} from 'primeng/menubar';
 import {MenuModule} from 'primeng/menu';
 import {SlideMenuModule} from 'primeng/slidemenu';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import {SidebarModule} from 'primeng/sidebar';
 
 import { SharedModule } from './shared/shared.module';
@@ -41,7 +41,7 @@ import { SharedModule } from './shared/shared.module';
     OverlayPanelModule,
     SharedModule
   ],
-  providers: [MessageService],
+  providers: [MessageService,ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
