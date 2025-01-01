@@ -21,6 +21,16 @@ export class HomeComponent implements OnInit {
   qrResultString: string = '';
 
   onCodeResult(resultString: string) {
+
+    
+
+    if(!resultString.startsWith("pSHOP-"))
+      {
+        alert(resultString);
+        this.messageService.clear();
+        this.messageService.add({ severity: 'error', summary: 'Invalid QR Code Scanned', detail: 'Please Try Again..' });
+        return;
+      }
     this.confirmationService.confirm({
     
       message: 'Are you sure that '+resultString+' is Sold?',
@@ -30,13 +40,13 @@ export class HomeComponent implements OnInit {
       rejectIcon:"none",
       rejectButtonStyleClass:"p-button-text",
       accept: () => {
-          this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted' });
+        this.  qrResultString = resultString;
       },
       reject: () => {
-          this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+          this.qrResultString="";
       }
   });
-    this.  qrResultString = resultString;
+   
   }
 
 }
