@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AmazonService } from './amazon.service';
+import { ScanshopService } from './scanshop.service';
 
-describe('AmazonService', () => {
-  let service: AmazonService;
+describe('ScanshopService', () => {
+  let service: ScanshopService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AmazonService);
+    service = TestBed.inject(ScanshopService);
   });
 
   it('should be created', () => {
